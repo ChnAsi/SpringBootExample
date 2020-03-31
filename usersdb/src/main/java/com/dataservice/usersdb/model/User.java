@@ -2,6 +2,8 @@ package com.dataservice.usersdb.model;
 
 import org.springframework.data.annotation.Id;
 
+import java.util.Objects;
+
 public class User {
 
     String id;
@@ -49,4 +51,16 @@ public class User {
                 ", birthYear=" + birthYear +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return birthYear == user.birthYear &&
+                Objects.equals(id, user.id) &&
+                Objects.equals(name, user.name) &&
+                Objects.equals(lastName, user.lastName);
+    }
+
 }

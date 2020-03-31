@@ -57,7 +57,7 @@ public class ExampleUserContractor implements UserContractor{
         String url = "http://localhost:8081/add-user";
 
         // send POST request
-        ResponseEntity<User> response = this.restTemplate.postForObject(url, user, ResponseEntity.class);
+        ResponseEntity<User> response = this.restTemplate.postForEntity(url, user, User.class);
 
         // check response status code
         if (response.getStatusCode() == HttpStatus.CREATED) {
@@ -65,6 +65,8 @@ public class ExampleUserContractor implements UserContractor{
         } else {
             return null;
         }
+        //User resultedUser = this.restTemplate.postForObject(url, user, User.class);
+        //return resultedUser;
     }
 
 

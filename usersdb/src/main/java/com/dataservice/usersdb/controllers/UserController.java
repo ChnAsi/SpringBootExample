@@ -45,18 +45,6 @@ public class UserController {
     public User addUser(@RequestParam User user){
         System.out.println("Creating new user for: name = " + user.getName() + " last name = " + user.getLastName() + " birthYear = " + user.getBirthYear());
 
-//        User user = new User();
-//
-//        // Create a user obj and send it to the user service for storing.
-//        user.setName(name);
-//        user.setLastName(lastName);
-//        user.setBirthYear(birthYear);
-
-        LocalDateTime time = LocalDateTime.now();
-        String uuid = generateUserId(user.getName() + user.getLastName() + time);
-        user.setId(uuid);
-
-
         return userService.addUser(user);
     }
 
